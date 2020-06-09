@@ -108,7 +108,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="QAA-0s-gDz" id="1LD-Nj-Fhu"/>
+                        <outlet property="emailTextField" destination="QAA-0s-gDz" id="q4O-TA-hKk"/>
                         <outlet property="errorLabel" destination="682-Bw-iQE" id="cMg-2B-k2b"/>
                         <outlet property="passwordTextField" destination="vbR-Su-R29" id="vXg-w2-YAQ"/>
                     </connections>
@@ -117,7 +117,45 @@
             </objects>
             <point key="canvasLocation" x="337.68115942028987" y="122.54464285714285"/>
         </scene>
-        <!--Task-->
+        <!--Add Task-->
+        <scene sceneID="a4i-Oj-p2e">
+            <objects>
+                <viewController storyboardIdentifier="AddTaskViewController" id="u5g-Bq-KDn" customClass="AddTaskViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dqh-r6-SGc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CWL-v1-rOH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" name="main_color"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" name="main_color"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="CWL-v1-rOH" secondAttribute="bottom" id="OZ1-jf-OjZ"/>
+                            <constraint firstItem="CWL-v1-rOH" firstAttribute="top" secondItem="hVM-0O-znR" secondAttribute="top" id="pHn-eH-mYW"/>
+                            <constraint firstItem="hVM-0O-znR" firstAttribute="trailing" secondItem="CWL-v1-rOH" secondAttribute="trailing" id="wf4-3M-deP"/>
+                            <constraint firstItem="CWL-v1-rOH" firstAttribute="leading" secondItem="hVM-0O-znR" secondAttribute="leading" id="zun-l5-4g5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hVM-0O-znR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Task" id="hSQ-Ei-xnE">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="chevron.left.circle" catalog="system" id="p6j-5B-dWa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" image="checkmark.circle" catalog="system" id="iQW-dL-fVs">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45U-Sz-T8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013" y="-564"/>
+        </scene>
+        <!--Tasks-->
         <scene sceneID="mIh-D8-EJU">
             <objects>
                 <viewController storyboardIdentifier="TaskViewController" id="IsV-p0-yWZ" customClass="TaskViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -162,14 +200,14 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="KKI-Nk-t3L"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Task" id="nzW-oX-b4I">
-                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="3To-zi-8PX">
+                    <navigationItem key="navigationItem" title="Tasks" id="nzW-oX-b4I">
+                        <barButtonItem key="leftBarButtonItem" title="Sign out" image="multiply.circle" catalog="system" id="3To-zi-8PX">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="signOutButton:" destination="IsV-p0-yWZ" id="tg8-Ds-Fnr"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus.square" catalog="system" id="1Ak-hg-ai5">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus.circle" catalog="system" id="1Ak-hg-ai5">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addTaskButton:" destination="IsV-p0-yWZ" id="gSc-6i-fbv"/>
@@ -185,7 +223,7 @@
         <!--Navigation Controller-->
         <scene sceneID="EWh-Xl-bGH">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="q8Z-0W-0iS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TaskNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="q8Z-0W-0iS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oyk-lo-PQP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -209,10 +247,40 @@
             </objects>
             <point key="canvasLocation" x="1152" y="123"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nAT-dm-GpM">
+            <objects>
+                <navigationController storyboardIdentifier="TaskAddNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="uuh-zV-bEo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gzo-Vk-uWW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="main_color"/>
+                        <color key="barTintColor" name="main_color"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="32"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u5g-Bq-KDn" kind="relationship" relationship="rootViewController" id="6Nh-ix-F6J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C96-gU-XbL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1151" y="-565"/>
+        </scene>
     </scenes>
     <color key="tintColor" name="main_color"/>
     <resources>
-        <image name="plus.square" catalog="system" width="128" height="114"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.left.circle" catalog="system" width="128" height="121"/>
+        <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <namedColor name="main_color">
             <color red="0.71799999475479126" green="0.58799999952316284" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

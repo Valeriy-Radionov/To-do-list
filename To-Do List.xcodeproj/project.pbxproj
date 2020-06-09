@@ -16,6 +16,7 @@
 		2A321D2F248C1ACC006ABB82 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */; };
 		2A321D31248C365C006ABB82 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A321D30248C365C006ABB82 /* TaskTableViewCell.swift */; };
 		2A93C8EA248D35230035EB70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */; };
+		2AAC599D24902544007942E1 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC599C24902544007942E1 /* AddTaskViewController.swift */; };
 		2ACD21F9248EB1B700682E11 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2ACD21F8248EB1B700682E11 /* .gitignore */; };
 		B71C53DD36F2095B3177EB51 /* Pods_To_Do_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AAD362BD3B173BCC6F6E86D /* Pods_To_Do_List.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		2A321D30248C365C006ABB82 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2AAC599C24902544007942E1 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		2ACD21F8248EB1B700682E11 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7AAD362BD3B173BCC6F6E86D /* Pods_To_Do_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_Do_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32760CAB827A8387DC39A42 /* Pods-To-Do List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-Do List.debug.xcconfig"; path = "Target Support Files/Pods-To-Do List/Pods-To-Do List.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				2A1CE370248BA35A00D96289 /* InputViewController.swift */,
 				2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */,
+				2AAC599C24902544007942E1 /* AddTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A1CE371248BA35A00D96289 /* InputViewController.swift in Sources */,
+				2AAC599D24902544007942E1 /* AddTaskViewController.swift in Sources */,
 				2A321D2F248C1ACC006ABB82 /* TaskViewController.swift in Sources */,
 				2A321D31248C365C006ABB82 /* TaskTableViewCell.swift in Sources */,
 				2A1CE36D248BA35A00D96289 /* AppDelegate.swift in Sources */,

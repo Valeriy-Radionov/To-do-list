@@ -17,18 +17,34 @@ class InputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.keyboardSettings()
         self.authorizationСheck()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         emailTextField.text = ""
         passwordTextField.text = ""
     }
     
+    private func errorWarningLabel(withText text: String) {
+        
+        errorLabel.text = text
+        
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: { [weak self] in
+            self?.errorLabel.alpha = 1
+        }) { [weak self] complete in
+            self?.errorLabel.alpha = 0
+        }
+    }
+    
     private func authorizationСheck() {
+        
         Auth.auth().addStateDidChangeListener { (auth, user) in
         if user != nil {
             guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else{ return }
@@ -36,6 +52,8 @@ class InputViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: Keyboard Settings
     
     func keyboardSettings() {
         
@@ -59,17 +77,6 @@ class InputViewController: UIViewController {
         (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
     }
     
-    private func errorWarningLabel(withText text: String) {
-        
-        errorLabel.text = text
-        
-        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: { [weak self] in
-            self?.errorLabel.alpha = 1
-        }) { [weak self] complete in
-            self?.errorLabel.alpha = 0
-        }
-    }
-    
     // MARK: Actions
     
     @IBAction func loginButton(_ sender: UIButton) {
@@ -86,7 +93,7 @@ class InputViewController: UIViewController {
             }
             
         if user != nil {
-            guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else{ return }
+            guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "TaskNavigationController") as? UINavigationController else{ return }
             self?.present(controller, animated: true, completion: nil)
             return
             }
@@ -114,6 +121,18 @@ class InputViewController: UIViewController {
                 print(error!.localizedDescription)
             }
         })
+    }
+}
+
+// MARK: UITextFieldDelegate
+
+extension InputViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
     }
 }
 
