@@ -28,6 +28,7 @@ class TaskViewController: UIViewController {
     }
     
     @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
+        
     }
     
     @IBAction func signOutButton(_ sender: UIBarButtonItem) {

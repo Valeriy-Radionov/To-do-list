@@ -47,7 +47,7 @@ class InputViewController: UIViewController {
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
         if user != nil {
-            guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else{ return }
+            guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "TaskNavigationController") as? UINavigationController else{ return }
             self.present(controller, animated: true, completion: nil)
             }
         }
