@@ -100,7 +100,6 @@
 				2A1CE36C248BA35A00D96289 /* AppDelegate.swift */,
 				2A1CE36E248BA35A00D96289 /* SceneDelegate.swift */,
 				2A1CE375248BA36100D96289 /* Assets.xcassets */,
-				2A1CE377248BA36100D96289 /* LaunchScreen.storyboard */,
 				2A1CE37A248BA36100D96289 /* Info.plist */,
 				2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */,
 				2ACD21F8248EB1B700682E11 /* .gitignore */,
@@ -122,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				2A1CE372248BA35A00D96289 /* Main.storyboard */,
+				2A1CE377248BA36100D96289 /* LaunchScreen.storyboard */,
 				2A321D30248C365C006ABB82 /* TaskTableViewCell.swift */,
 			);
 			path = View;

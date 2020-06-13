@@ -11,13 +11,35 @@ import Firebase
 
 class TaskViewController: UIViewController {
     
+    var tasks: [Task] = []
+    var ref: DatabaseReference!
+    var user: User!
     
-    var array = ["1ldkngkejkefvkefnvenenbnerbnenbveronborenboirenioernboiernoibneroibnorienoignerognerognoerngferognerognreognerognerognoerignoengoie","2","3","4"]
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let currentUser = Auth.auth().currentUser else { return }
+        user = User(user: currentUser)
+        ref = Database.database().reference(withPath: "users").child(String(user.uid)).child("tasks")
     }
+    // Fetch data
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           ref.observe(.value) { [weak self] (snapshot) in
+               
+               var _tasks: [Task] = []
+               
+               for item in snapshot.children {
+                   let task = Task(snapshot:  item as! DataSnapshot)
+                   _tasks.append(task)
+               }
+               self?.tasks = _tasks
+            self?.tableView.reloadData()
+           }
+       }
     
     private func customizeCellLabel(cell: UITableViewCell) {
            cell.textLabel?.textColor = .white
@@ -45,9 +67,9 @@ class TaskViewController: UIViewController {
 // MARK: UITableViewDelegate, UITableViewDataSource
 
 extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +78,8 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         customizeCellLabel(cell: cell)
-        cell.textLabel?.text = array[indexPath.row]
+        let taskTitle = tasks[indexPath.row].title
+        cell.textLabel?.text = taskTitle
         return cell
     }
     
