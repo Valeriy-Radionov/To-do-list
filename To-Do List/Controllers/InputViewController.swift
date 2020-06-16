@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class InputViewController: UIViewController {
-
+    
     var ref: DatabaseReference!
     
     @IBOutlet var errorLabel: UILabel!
@@ -49,9 +49,9 @@ class InputViewController: UIViewController {
     private func authorizationСheck() {
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
-        if user != nil {
-            guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "TaskNavigationController") as? UINavigationController else{ return }
-            self.present(controller, animated: true, completion: nil)
+            if user != nil {
+                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "TaskNavigationController") as? UINavigationController else{ return }
+                self.present(controller, animated: true, completion: nil)
             }
         }
     }
@@ -71,8 +71,13 @@ class InputViewController: UIViewController {
         guard let userInfo = notification.userInfo else { return }
         let kbFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
-        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + kbFrameSize.height)
-        (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom:  kbFrameSize.height, right: 0)
+        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width,
+                                                          height: self.view.bounds.size.height + kbFrameSize.height)
+        
+        (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0,
+                                                                          left: 0,
+                                                                          bottom:  kbFrameSize.height,
+                                                                          right: 0)
     }
     
     @objc func keyboardDidHide() {
@@ -95,16 +100,16 @@ class InputViewController: UIViewController {
                 return
             }
             
-        if user != nil {
-            guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "TaskNavigationController") as? UINavigationController else{ return }
-            self?.present(controller, animated: true, completion: nil)
-            return
+            if user != nil {
+                guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "TaskNavigationController") as? UINavigationController else{ return }
+                self?.present(controller, animated: true, completion: nil)
+                return
             }
-        
-        self?.errorWarningLabel(withText: "No uch user")
+            
+            self?.errorWarningLabel(withText: "No uch user")
         }
     }
-        
+    
     @IBAction func registrButton(_ sender: UIButton) {
         
         guard let email =  emailTextField.text, let password = passwordTextField.text, email != "", password != "" else {
@@ -122,7 +127,6 @@ class InputViewController: UIViewController {
             
             let userRef = self?.ref.child((user?.user.uid)!)
             userRef?.setValue(["email": user?.user.email])
-            
         })
     }
 }
@@ -139,5 +143,5 @@ extension InputViewController: UITextFieldDelegate {
     }
 }
 
-    
+
 

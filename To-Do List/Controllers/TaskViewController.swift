@@ -26,48 +26,58 @@ class TaskViewController: UIViewController {
     }
     // Fetch data
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           
-           ref.observe(.value) { [weak self] (snapshot) in
-               
-               var _tasks: [Task] = []
-               
-               for item in snapshot.children {
-                   let task = Task(snapshot:  item as! DataSnapshot)
-                   _tasks.append(task)
-               }
-               self?.tasks = _tasks
-            self?.tableView.reloadData()
-           }
-       }
-    
-    private func customizeCellLabel(cell: UITableViewCell) {
-           cell.textLabel?.textColor = .white
-           cell.backgroundColor = UIColor(named: "B39564")
-           cell.textLabel?.numberOfLines = 0
-           cell.textLabel?.textAlignment = .justified
-           
+        super.viewWillAppear(animated)
+        fetchData()
     }
     
-    @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        ref.removeAllObservers()
+    }
+    
+    private func fetchData() {
+        ref.observe(.value) { [weak self] (snapshot) in
+            
+            var _tasks: [Task] = []
+            
+            for item in snapshot.children {
+                let task = Task(snapshot:  item as! DataSnapshot)
+                _tasks.append(task)
+            }
+            self?.tasks = _tasks
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func customizeCellLabel(cell: UITableViewCell) {
         
+        cell.textLabel?.textColor = .white
+        cell.backgroundColor = .clear
+        
+        if cell.textLabel?.text != "" {
+            cell.backgroundColor = UIColor(named: "B39564")
+        }
+        
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.textAlignment = .justified
+        cell.textLabel?.font = UIFont(name: "Papyrus", size: 20)
     }
     
     @IBAction func signOutButton(_ sender: UIBarButtonItem) {
         do {
-                try Auth.auth().signOut()
-            } catch {
-                print(error.localizedDescription)
-            }
-            
-            dismiss(animated: true, completion: nil)
+            try Auth.auth().signOut()
+        } catch {
+            print(error.localizedDescription)
         }
+        
+        dismiss(animated: true, completion: nil)
     }
+}
 
 // MARK: UITableViewDelegate, UITableViewDataSource
 
 extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -77,11 +87,60 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TaskTableViewCell else {
             return UITableViewCell()
         }
+        
         customizeCellLabel(cell: cell)
-        let taskTitle = tasks[indexPath.row].title
+        let task = tasks[indexPath.row]
+        let taskTitle = task.title
+        let isCompleted = task.completed
+        toggleCompletion(cell, isCompleted: isCompleted)
+        
         cell.textLabel?.text = taskTitle
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        
+        let task = tasks[indexPath.row]
+        let isCompleted = !task.completed
+        toggleCompletion(cell, isCompleted: isCompleted)
+        task.ref?.updateChildValues(["completed": isCompleted])
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let configurationDelete = UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "delete", handler: { [weak self] (action, view, completionHandler) in
+            let task = self?.tasks[indexPath.row]
+            task?.ref?.removeValue()
+            
+            completionHandler(true)
+        })])
+        return configurationDelete
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let configurationEdit = UISwipeActionsConfiguration(actions: [UIContextualAction(style: .normal, title: "edit", handler: { [weak self] (action, view, completionHandler) in
+            let task = self?.tasks[indexPath.row]
+            guard let vc = self?.storyboard?.instantiateViewController(withIdentifier: "AddTaskViewController") as? AddTaskViewController else { return }
+            vc.editableTaskTitle = (task?.title)!
+            vc.cancelButton.isEnabled = false
+            task?.ref?.removeValue()
+            tableView.deselectRow(at: indexPath, animated: true)
+            self?.navigationController?.pushViewController(vc, animated: true)
+            completionHandler(true)
+        })])
+        return configurationEdit
+    }
+    
+    func toggleCompletion(_ cell: UITableViewCell, isCompleted: Bool) {
+        cell.accessoryType = isCompleted ? .checkmark : .none
+    }
     
 }
+

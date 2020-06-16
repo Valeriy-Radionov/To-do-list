@@ -14,7 +14,6 @@
 		2A1CE376248BA36100D96289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1CE375248BA36100D96289 /* Assets.xcassets */; };
 		2A1CE379248BA36100D96289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1CE377248BA36100D96289 /* LaunchScreen.storyboard */; };
 		2A321D2F248C1ACC006ABB82 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */; };
-		2A321D31248C365C006ABB82 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A321D30248C365C006ABB82 /* TaskTableViewCell.swift */; };
 		2A93C8EA248D35230035EB70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */; };
 		2AAC599D24902544007942E1 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC599C24902544007942E1 /* AddTaskViewController.swift */; };
 		2AC90BA02492A4B200B74519 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC90B9F2492A4B200B74519 /* Task.swift */; };
@@ -33,7 +32,6 @@
 		2A1CE378248BA36100D96289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A1CE37A248BA36100D96289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
-		2A321D30248C365C006ABB82 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2AAC599C24902544007942E1 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		2AC90B9F2492A4B200B74519 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Task.swift; path = "To-Do List/Controllers/Task.swift"; sourceTree = SOURCE_ROOT; };
@@ -122,7 +120,6 @@
 			children = (
 				2A1CE372248BA35A00D96289 /* Main.storyboard */,
 				2A1CE377248BA36100D96289 /* LaunchScreen.storyboard */,
-				2A321D30248C365C006ABB82 /* TaskTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 				2A1CE371248BA35A00D96289 /* InputViewController.swift in Sources */,
 				2AAC599D24902544007942E1 /* AddTaskViewController.swift in Sources */,
 				2A321D2F248C1ACC006ABB82 /* TaskViewController.swift in Sources */,
-				2A321D31248C365C006ABB82 /* TaskTableViewCell.swift in Sources */,
 				2AC90BA22492A4CA00B74519 /* User.swift in Sources */,
 				2A1CE36D248BA35A00D96289 /* AppDelegate.swift in Sources */,
 				2AC90BA02492A4B200B74519 /* Task.swift in Sources */,
