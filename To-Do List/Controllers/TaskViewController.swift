@@ -84,18 +84,15 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TaskTableViewCell else {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) 
         
-        customizeCellLabel(cell: cell)
         let task = tasks[indexPath.row]
         let taskTitle = task.title
         let isCompleted = task.completed
         toggleCompletion(cell, isCompleted: isCompleted)
         
         cell.textLabel?.text = taskTitle
-        
+        customizeCellLabel(cell: cell)
         return cell
     }
     
@@ -140,6 +137,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     
     func toggleCompletion(_ cell: UITableViewCell, isCompleted: Bool) {
         cell.accessoryType = isCompleted ? .checkmark : .none
+        
     }
     
 }

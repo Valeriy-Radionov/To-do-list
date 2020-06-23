@@ -16,6 +16,8 @@
 		2A321D2F248C1ACC006ABB82 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */; };
 		2A93C8EA248D35230035EB70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */; };
 		2AAC599D24902544007942E1 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC599C24902544007942E1 /* AddTaskViewController.swift */; };
+		2AC57BD824A25E4800473335 /* ExtensionInputVС.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC57BD724A25E4800473335 /* ExtensionInputVС.swift */; };
+		2AC57BDA24A2606600473335 /* ExtensionsAddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC57BD924A2606600473335 /* ExtensionsAddTaskVC.swift */; };
 		2AC90BA02492A4B200B74519 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC90B9F2492A4B200B74519 /* Task.swift */; };
 		2AC90BA22492A4CA00B74519 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC90BA12492A4CA00B74519 /* User.swift */; };
 		2ACD21F9248EB1B700682E11 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2ACD21F8248EB1B700682E11 /* .gitignore */; };
@@ -34,6 +36,8 @@
 		2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2AAC599C24902544007942E1 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		2AC57BD724A25E4800473335 /* ExtensionInputVС.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtensionInputVС.swift"; sourceTree = "<group>"; };
+		2AC57BD924A2606600473335 /* ExtensionsAddTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsAddTaskVC.swift; sourceTree = "<group>"; };
 		2AC90B9F2492A4B200B74519 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Task.swift; path = "To-Do List/Controllers/Task.swift"; sourceTree = SOURCE_ROOT; };
 		2AC90BA12492A4CA00B74519 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = "To-Do List/Controllers/User.swift"; sourceTree = SOURCE_ROOT; };
 		2ACD21F8248EB1B700682E11 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 		2A1CE36B248BA35A00D96289 /* To-Do List */ = {
 			isa = PBXGroup;
 			children = (
+				2AC57BD624A25DF400473335 /* Extensions */,
 				2A1CE385248BAAA000D96289 /* Models */,
 				2A1CE384248BAA3400D96289 /* View */,
 				2A1CE383248BAA1200D96289 /* Controllers */,
@@ -131,6 +136,15 @@
 				2AC90BA12492A4CA00B74519 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2AC57BD624A25DF400473335 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2AC57BD724A25E4800473335 /* ExtensionInputVС.swift */,
+				2AC57BD924A2606600473335 /* ExtensionsAddTaskVC.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F52E3CC5240178AE17CE8BC1 /* Frameworks */ = {
@@ -260,9 +274,11 @@
 			files = (
 				2A1CE371248BA35A00D96289 /* InputViewController.swift in Sources */,
 				2AAC599D24902544007942E1 /* AddTaskViewController.swift in Sources */,
+				2AC57BDA24A2606600473335 /* ExtensionsAddTaskVC.swift in Sources */,
 				2A321D2F248C1ACC006ABB82 /* TaskViewController.swift in Sources */,
 				2AC90BA22492A4CA00B74519 /* User.swift in Sources */,
 				2A1CE36D248BA35A00D96289 /* AppDelegate.swift in Sources */,
+				2AC57BD824A25E4800473335 /* ExtensionInputVС.swift in Sources */,
 				2AC90BA02492A4B200B74519 /* Task.swift in Sources */,
 				2A1CE36F248BA35A00D96289 /* SceneDelegate.swift in Sources */,
 			);
