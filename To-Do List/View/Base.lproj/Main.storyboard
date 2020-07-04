@@ -231,7 +231,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3a-jh-N66" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2897" y="123"/>
+            <point key="canvasLocation" x="2895.6521739130435" y="122.54464285714285"/>
+        </scene>
+        <!--Notification-->
+        <scene sceneID="jCJ-Us-lox">
+            <objects>
+                <viewController storyboardIdentifier="NotificationViewController" modalPresentationStyle="fullScreen" id="NvD-ka-njH" customClass="NotificationViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hd5-xA-zYl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EdE-1q-17q">
+                                <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="BJh-h3-ObV"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeData:" destination="NvD-ka-njH" eventType="valueChanged" id="Xd4-aV-CqC"/>
+                                    <action selector="dataPicker:" destination="Fuc-wN-3bM" eventType="valueChanged" id="Yhn-UC-ewj"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpR-Pz-sLO">
+                                <rect key="frame" x="0.0" y="270" width="414" height="93"/>
+                                <string key="text">Date of notice
+</string>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.9932228635" blue="0.98223022709999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="main_color"/>
+                        <color key="tintColor" name="main_color"/>
+                        <constraints>
+                            <constraint firstItem="EdE-1q-17q" firstAttribute="top" secondItem="hnb-cf-ywS" secondAttribute="top" id="FHb-oo-oPV"/>
+                            <constraint firstItem="JpR-Pz-sLO" firstAttribute="trailing" secondItem="hnb-cf-ywS" secondAttribute="trailing" id="R5o-cT-dud"/>
+                            <constraint firstItem="EdE-1q-17q" firstAttribute="trailing" secondItem="hnb-cf-ywS" secondAttribute="trailing" id="kCe-l8-ftL"/>
+                            <constraint firstItem="EdE-1q-17q" firstAttribute="leading" secondItem="hnb-cf-ywS" secondAttribute="leading" id="lMN-YC-jZo"/>
+                            <constraint firstItem="JpR-Pz-sLO" firstAttribute="top" secondItem="EdE-1q-17q" secondAttribute="bottom" constant="10" id="mfa-0f-RnW"/>
+                            <constraint firstItem="JpR-Pz-sLO" firstAttribute="leading" secondItem="hnb-cf-ywS" secondAttribute="leading" id="vFJ-CH-mw7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hnb-cf-ywS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notification" id="CLZ-0x-J82">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left.circle" catalog="system" id="3eW-Es-Cmm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="NvD-ka-njH" id="Ycr-ST-Gz3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark.circle" catalog="system" id="Lok-IF-9xs">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addNotification:" destination="NvD-ka-njH" id="YeO-lk-1c9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dataPicker" destination="EdE-1q-17q" id="02g-KZ-Me1"/>
+                        <outlet property="dateOfNoticeLabel" destination="JpR-Pz-sLO" id="2qv-bE-eTm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="500-tp-190" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Fuc-wN-3bM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3685.507246376812" y="122.54464285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EWh-Xl-bGH">
@@ -250,6 +313,7 @@
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

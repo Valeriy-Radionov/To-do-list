@@ -19,7 +19,6 @@ class InputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ref = Database.database().reference(withPath: "users")
         self.keyboardSettings()
         self.authorizationСheck()

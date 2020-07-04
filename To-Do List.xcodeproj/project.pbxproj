@@ -14,7 +14,9 @@
 		2A1CE376248BA36100D96289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1CE375248BA36100D96289 /* Assets.xcassets */; };
 		2A1CE379248BA36100D96289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1CE377248BA36100D96289 /* LaunchScreen.storyboard */; };
 		2A321D2F248C1ACC006ABB82 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */; };
+		2A46E25524AF7F5800044418 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A46E25424AF7F5800044418 /* Notifications.swift */; };
 		2A93C8EA248D35230035EB70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */; };
+		2A9613EB24AE4F2600136109 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9613EA24AE4F2600136109 /* NotificationViewController.swift */; };
 		2AAC599D24902544007942E1 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC599C24902544007942E1 /* AddTaskViewController.swift */; };
 		2AC57BD824A25E4800473335 /* ExtensionInputVС.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC57BD724A25E4800473335 /* ExtensionInputVС.swift */; };
 		2AC57BDA24A2606600473335 /* ExtensionsAddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC57BD924A2606600473335 /* ExtensionsAddTaskVC.swift */; };
@@ -34,7 +36,9 @@
 		2A1CE378248BA36100D96289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A1CE37A248BA36100D96289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		2A46E25424AF7F5800044418 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		2A93C8E9248D35230035EB70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2A9613EA24AE4F2600136109 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		2AAC599C24902544007942E1 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		2AC57BD724A25E4800473335 /* ExtensionInputVС.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtensionInputVС.swift"; sourceTree = "<group>"; };
 		2AC57BD924A2606600473335 /* ExtensionsAddTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsAddTaskVC.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				2A1CE370248BA35A00D96289 /* InputViewController.swift */,
 				2A321D2E248C1ACC006ABB82 /* TaskViewController.swift */,
 				2AAC599C24902544007942E1 /* AddTaskViewController.swift */,
+				2A9613EA24AE4F2600136109 /* NotificationViewController.swift */,
+				2A46E25424AF7F5800044418 /* Notifications.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,7 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9613EB24AE4F2600136109 /* NotificationViewController.swift in Sources */,
 				2A1CE371248BA35A00D96289 /* InputViewController.swift in Sources */,
+				2A46E25524AF7F5800044418 /* Notifications.swift in Sources */,
 				2AAC599D24902544007942E1 /* AddTaskViewController.swift in Sources */,
 				2AC57BDA24A2606600473335 /* ExtensionsAddTaskVC.swift in Sources */,
 				2A321D2F248C1ACC006ABB82 /* TaskViewController.swift in Sources */,

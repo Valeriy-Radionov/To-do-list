@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class TaskViewController: UIViewController {
-    
+
     var tasks: [Task] = []
     var ref: DatabaseReference!
     var user: User!
@@ -19,7 +19,6 @@ class TaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         guard let currentUser = Auth.auth().currentUser else { return }
         user = User(user: currentUser)
         ref = Database.database().reference(withPath: "users").child(String(user.uid)).child("tasks")
@@ -112,7 +111,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let configurationDelete = UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "delete", handler: { [weak self] (action, view, completionHandler) in
+        let configurationDelete = UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "Delete", handler: { [weak self] (action, view, completionHandler) in
             let task = self?.tasks[indexPath.row]
             task?.ref?.removeValue()
             
@@ -122,7 +121,8 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let configurationEdit = UISwipeActionsConfiguration(actions: [UIContextualAction(style: .normal, title: "edit", handler: { [weak self] (action, view, completionHandler) in
+        
+        let edit = UIContextualAction(style: .normal, title: "Edit", handler: { [weak self] (action, view, completionHandler) in
             let task = self?.tasks[indexPath.row]
             guard let vc = self?.storyboard?.instantiateViewController(withIdentifier: "AddTaskViewController") as? AddTaskViewController else { return }
             vc.editableTaskTitle = (task?.title)!
@@ -131,8 +131,24 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deselectRow(at: indexPath, animated: true)
             self?.navigationController?.pushViewController(vc, animated: true)
             completionHandler(true)
-        })])
-        return configurationEdit
+        })
+        edit.backgroundColor = .orange
+                                                                      
+        let notification = UIContextualAction(style: .normal, title: "Notification", handler: { [weak self] (action, view, completionHandler) in
+            guard let task = self?.tasks[indexPath.row].title else { return }
+            
+            guard let vcNotification = self?.storyboard?.instantiateViewController(withIdentifier: "NotificationViewController") as? NotificationViewController else { return }
+            vcNotification.taskNotification = task
+            self?.navigationController?.pushViewController(vcNotification, animated: true)
+            
+            completionHandler(true)
+        })
+        notification.image = UIImage(systemName: "alarm.fill")
+        notification.backgroundColor = UIColor(named: "A0FF78")
+        
+        let configuration = UISwipeActionsConfiguration(actions: [notification, edit])
+
+        return configuration
     }
     
     func toggleCompletion(_ cell: UITableViewCell, isCompleted: Bool) {
