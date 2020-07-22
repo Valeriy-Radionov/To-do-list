@@ -47,10 +47,10 @@ class InputViewController: UIViewController {
     
     private func authorizationСheck() {
         
-        Auth.auth().addStateDidChangeListener { (auth, user) in
+        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             if user != nil {
-                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "TaskNavigationController") as? UINavigationController else{ return }
-                self.present(controller, animated: true, completion: nil)
+                guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "TaskNavigationController") as? UINavigationController else{ return }
+                self?.present(controller, animated: true, completion: nil)
             }
         }
     }
@@ -90,7 +90,7 @@ class InputViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] (user, error) in
             
             guard error == nil, user != nil else {
-                
+                 
                 print(error!.localizedDescription)
                 return
             }

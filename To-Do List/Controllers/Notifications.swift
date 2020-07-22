@@ -78,6 +78,5 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate  {
         default:
             print("1")
         }
-        // для реагирования по тапу на уведомление
     }
 }
