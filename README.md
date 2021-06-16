@@ -2,7 +2,7 @@
 Добавление новых задач, их редактирование и удаление, возможность ставить напоминания по дате и времени, отмечать выполненные задачи. Регистрация в приложении осуществляется посредством email, данные хранятся (Firebase).
 
 Стартовый экран
-![Стартовый экран](https://user-images.githubusercontent.com/63901279/122278337-775cad00-ceef-11eb-8fb4-27c0d4f86dc8.png) ![Отображение задач](https://user-images.githubusercontent.com/63901279/122278632-cc002800-ceef-11eb-8249-f630687ae82f.png)
+![](https://user-images.githubusercontent.com/63901279/122278337-775cad00-ceef-11eb-8fb4-27c0d4f86dc8.png) ![Отображение задач](https://user-images.githubusercontent.com/63901279/122278632-cc002800-ceef-11eb-8249-f630687ae82f.png)
 
 
 
