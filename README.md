@@ -8,6 +8,7 @@
 ![Отметка выполненных](https://user-images.githubusercontent.com/63901279/122279502-c6571200-cef0-11eb-83e9-ed91a897000b.png)
 ![Редактирование и установка уведомлений (свайп вправо)](https://user-images.githubusercontent.com/63901279/122280283-b5f36700-cef1-11eb-926a-242b26b2a468.png)
 ![Установка уведомлений](https://user-images.githubusercontent.com/63901279/122280390-d15e7200-cef1-11eb-9077-509441285a60.png)
+Видео - https://yadi.sk/i/xZUIS0AmKoK-Lw
 
 
 
